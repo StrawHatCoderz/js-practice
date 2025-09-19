@@ -1,1 +1,4 @@
-console.log('reverse of 1 is 1');
+const numberToReverse = 1;
+const reversedNumber = 1;
+
+console.log('reverse of',numberToReverse,'is',reversedNumber)
