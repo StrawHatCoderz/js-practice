@@ -1,1 +1,2 @@
-console.log("1 is palindrome");
+const numberToCheckPalindrome = 1;
+console.log(numberToCheckPalindrome, "is palindrome");
