@@ -4,10 +4,10 @@ let reversedNumber = 0;
 
 let lastDigit = numberToReverse % 10;
 reversedNumber = reversedNumber * 10 + lastDigit;
-numberToProcess = numberToProcess / 10;
+numberToProcess = numberToProcess / 10 - (lastDigit / 10);
 
 lastDigit = numberToReverse % 10;
 reversedNumber = reversedNumber * 10 + lastDigit;
-numberToProcess = numberToProcess / 10;
+numberToProcess = numberToProcess / 10 - (lastDigit / 10);
 
 console.log('reverse of',numberToReverse,'is',reversedNumber);
