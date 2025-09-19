@@ -1,4 +1,9 @@
-const numberToReverse = 1;
-const reversedNumber = numberToReverse;
+const numberToReverse = 9;
+let numberToProcess = numberToReverse;
+let reversedNumber = 0;
 
-console.log('reverse of',numberToReverse,'is',reversedNumber)
+const lastDigit = numberToReverse % 10;
+reversedNumber = reversedNumber * 10 + lastDigit;
+numberToProcess = numberToProcess / 10;
+
+console.log('reverse of',numberToReverse,'is',reversedNumber);
