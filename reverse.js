@@ -1,4 +1,4 @@
 const numberToReverse = 1;
-const reversedNumber = 1;
+const reversedNumber = numberToReverse;
 
 console.log('reverse of',numberToReverse,'is',reversedNumber)
