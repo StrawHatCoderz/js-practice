@@ -1,7 +1,7 @@
 const testCase1 = "L";
 const testCase2 = "L Z";
 const testCase3 = "L ZL";
-const testCaseToUse = testCase1;
+const testCaseToUse = testCase2;
 
 const lino = "L";
 const zebra = "Z";
@@ -17,10 +17,13 @@ for (let index = 0; index < testCaseToUse.length; index++) {
    }
 }
 
-let closestDistance = -1; 
+let closestDistance = -1;
 if(lionPosition !== -1 && zebraPosition !== -1) { 
-   closestDistance = lionPosition - zebraPosition;
+   if(lionPosition > zebraPosition) {
+      closestDistance = lionPosition - zebraPosition - 1;
+   } else {
+      closestDistance = zebraPosition - lionPosition - 1;
+   }
 }
-
 
 console.log("Input:",testCaseToUse, "Output:",closestDistance);
