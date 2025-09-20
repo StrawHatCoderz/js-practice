@@ -1,15 +1,17 @@
 const testCase1 = "LZ";
 const testCase2 = "L Z";
 const testCase3 = "L ZL";
-const testCaseToUse = testCase1;
+const testCaseToUse = testCase2;
 let closestDistance = -1;
 
 const lino = "L";
 const zebra = "Z";
 const space = " ";
 
-if(testCaseToUse[0] === lino && testCaseToUse[1] === zebra) {
-   closestDistance = closestDistance + 1;
-} 
+for (let index = 0; index < testCaseToUse.length; index++) {
+   if(testCaseToUse[index] === lino && testCaseToUse[index + 1]) {
+      closestDistance = closestDistance + 1;
+   }
+}
 
 console.log("Input:",testCaseToUse, "Output:",closestDistance);
