@@ -9,7 +9,7 @@ const zebra = "Z";
 const space = " ";
 
 for (let index = 0; index < testCaseToUse.length; index++) {
-   if(testCaseToUse[index] === lino && testCaseToUse[index + 1]) {
+   if(testCaseToUse[index] === lino && testCaseToUse[index + 1] === zebra) {
       closestDistance = closestDistance + 1;
    }
 }
