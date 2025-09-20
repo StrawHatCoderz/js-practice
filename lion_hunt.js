@@ -1,16 +1,20 @@
 const testCase1 = "LZ";
 const testCase2 = "L Z";
 const testCase3 = "L ZL";
-const testCaseToUse = testCase2;
+const testCaseToUse = testCase3;
 let closestDistance = -1;
 
 const lino = "L";
 const zebra = "Z";
-const space = " ";
+
+let lionPosition = -1;
+let zebraPosition = -1;
 
 for (let index = 0; index < testCaseToUse.length; index++) {
-   if(testCaseToUse[index] === lino && testCaseToUse[index + 1] === zebra) {
-      closestDistance = closestDistance + 1;
+   if(testCaseToUse[index] === lino) {
+      lionPosition = index;
+   } else if(testCaseToUse[index] === zebra) {
+      zebraPosition = index
    }
 }
 
