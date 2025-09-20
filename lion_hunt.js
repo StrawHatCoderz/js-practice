@@ -1,10 +1,15 @@
 const testCase1 = "LZ";
 const testCase2 = "L Z";
 const testCase3 = "L ZL";
-const testCase4 = " ";
+const testCaseToUse = testCase1;
+let closestDistance = -1;
 
-const testCaseToUse = testCase4;
+const lino = "L";
+const zebra = "Z";
+const space = " ";
 
-const closestDistance = -1;
+if(testCaseToUse[0] === lino && testCaseToUse[1] === zebra) {
+   closestDistance = closestDistance + 1;
+} 
 
-console.log("Input: ", testCaseToUse, "Output: ",closestDistance);
+console.log("Input:",testCaseToUse, "Output:",closestDistance);
