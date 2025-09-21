@@ -10,7 +10,7 @@ let lionPosition = -1;
 let zebraPosition = -1;
 
 let closestDistance = -1;
-let prevClosestDistance = -1;
+let prevClosestDistance = testCaseToUse.length;
 
 for (let index = 0; index < testCaseToUse.length; index++) {
    if(testCaseToUse[index] === lino) {
