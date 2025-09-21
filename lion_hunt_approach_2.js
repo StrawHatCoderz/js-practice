@@ -18,8 +18,6 @@ const lion = "L";
 const zebra = "Z";
 const space = " ";
 
-let lionFound = false;
-let zebraFound = false;
 let spacesFound = 0;
 let firstFoundAnimal = "";
 let lastFoundAnimal = "";
@@ -31,20 +29,11 @@ for(let position = 0; position < testCaseToUse.length; position++) {
   } else if(currChar === lion || currChar === zebra){
       lastFoundAnimal = firstFoundAnimal;
       firstFoundAnimal = currChar;
-    if(currChar === lion) {
-      lionFound = true;
-    } else if(currChar === zebra) {
-      zebraFound = true;
-    }
-    if(firstFoundAnimal === lastFoundAnimal) {
-      spacesFound = 0;
-    }
+      if(firstFoundAnimal === lastFoundAnimal) {
+        spacesFound = 0;
+      }
   }
-  
 }
 
-if(lionFound && zebraFound) {
-  closestDistance = spacesFound;
-}
 
-console.log("Input: ", testCaseToUse, "Output: ",closestDistance);
+console.log("Input: ", testCaseToUse, "Output: ",spacesFound);
