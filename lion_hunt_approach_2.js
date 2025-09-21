@@ -14,9 +14,9 @@ let lionFound = false;
 let zebraFound = false;
 
 for(let position = 0; position < testCaseToUse.length; position++) {
-  if(position === lion) {
+  if(testCaseToUse[position] === lion) {
     lionFound = true;
-  } else if(position === zebra) {
+  } else if(testCaseToUse[position] === zebra) {
     zebraFound = true;
   }
 }
