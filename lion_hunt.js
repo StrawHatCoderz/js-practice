@@ -1,20 +1,17 @@
-const testCase1 = "L";
-const testCase2 = "L ZL Z";
-const testCase3 = "L ZL";
-const testCaseToUse = testCase1;
 
+const savannah = "L ZL Z";
 const lino = "L";
 const zebra = "Z";
 
 let lionPosition = -1;
 let zebraPosition = -1;
 
-let closestDistance = testCaseToUse.length;
+let closestDistance = savannah.length;
 
-for (let index = 0; index < testCaseToUse.length; index++) {
-   if(testCaseToUse[index] === lino) {
+for (let index = 0; index < savannah.length; index++) {
+   if(savannah[index] === lino) {
       lionPosition = index;
-   } else if(testCaseToUse[index] === zebra) {
+   } else if(savannah[index] === zebra) {
       zebraPosition = index
    }
 
@@ -31,8 +28,8 @@ for (let index = 0; index < testCaseToUse.length; index++) {
    }
 }
 
-if(closestDistance === testCaseToUse.length) {
+if(closestDistance === savannah.length) {
    closestDistance = -1;
 }
 
-console.log("Input:",testCaseToUse, "Output:",closestDistance);
+console.log("Input:",savannah, "Output:",closestDistance);
