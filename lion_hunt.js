@@ -10,6 +10,7 @@ let lionPosition = -1;
 let zebraPosition = -1;
 
 let closestDistance = -1;
+let prevClosestDistance = -1;
 
 for (let index = 0; index < testCaseToUse.length; index++) {
    if(testCaseToUse[index] === lino) {
@@ -18,13 +19,19 @@ for (let index = 0; index < testCaseToUse.length; index++) {
       zebraPosition = index
    }
 
+   let distance;
    if(lionPosition !== -1 && zebraPosition !== -1) {
-   if(lionPosition > zebraPosition) {
-      closestDistance = lionPosition - zebraPosition - 1;
-   } else {
-      closestDistance = zebraPosition - lionPosition - 1;
+      if(lionPosition > zebraPosition) {
+         distance = lionPosition - zebraPosition - 1;
+      } else {
+         distance = zebraPosition - lionPosition - 1;
+      }
+
+      if(closestDistance < prevClosestDistance) {
+         prevClosestDistance = closestDistance;
+         closestDistance = distance;
+      }
    }
-}
 }
 
 
