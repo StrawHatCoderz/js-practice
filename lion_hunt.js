@@ -1,7 +1,7 @@
 const testCase1 = "L";
 const testCase2 = "L ZL Z";
 const testCase3 = "L ZL";
-const testCaseToUse = testCase2;
+const testCaseToUse = testCase1;
 
 const lino = "L";
 const zebra = "Z";
@@ -29,6 +29,10 @@ for (let index = 0; index < testCaseToUse.length; index++) {
          closestDistance = distance;
       }
    }
+}
+
+if(closestDistance === testCaseToUse.length) {
+   closestDistance = -1;
 }
 
 console.log("Input:",testCaseToUse, "Output:",closestDistance);
