@@ -6,8 +6,12 @@ const testCase5 = "Z  Z";
 const testCase6 = "LZ";
 const testCase7 = "L Z";
 const testCase8 = "L  Z";
+const testCase9 = " LZ";
+const testCase10 = "L LZ";
+const testCase11 = "L  LZ";
 
-const testCaseToUse = testCase8;
+
+const testCaseToUse = testCase11;
 let closestDistance = -1;
 
 const lion = "L";
@@ -17,14 +21,21 @@ const space = " ";
 let lionFound = false;
 let zebraFound = false;
 let spacesFound = 0;
+let firstFoundAnimal = "";
 
 for(let position = 0; position < testCaseToUse.length; position++) {
-  if(testCaseToUse[position] === lion) {
-    lionFound = true;
-  } else if(testCaseToUse[position] === zebra) {
-    zebraFound = true;
-  } else {
+  const currChar = testCaseToUse[position];
+  if(currChar === space && firstFoundAnimal) {
     spacesFound++;
+  } else if(currChar === lion || currChar === zebra){
+    if(!firstFoundAnimal) {
+      firstFoundAnimal = currChar;
+    }
+    if(currChar === lion) {
+      lionFound = true;
+    } else if(currChar === zebra) {
+      zebraFound = true;
+    }
   }
 }
 
