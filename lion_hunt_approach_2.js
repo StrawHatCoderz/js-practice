@@ -11,13 +11,13 @@ const lion = "L";
 const zebra = "Z";
 
 let lionFound = false;
-let zebraFound = true;
+let zebraFound = false;
 
 for(let position = 0; position < testCaseToUse.length; position++) {
   if(position === lion) {
     lionFound = true;
   } else if(position === zebra) {
-    zebraFound = false;
+    zebraFound = true;
   }
 }
 
