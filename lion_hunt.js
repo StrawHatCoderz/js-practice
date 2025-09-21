@@ -1,6 +1,6 @@
 
-const savannah = "L ZL Z";
-const lino = "L";
+const savannah = "L  Z LL  ";
+const lion = "L";
 const zebra = "Z";
 
 let lionPosition = -1;
@@ -9,7 +9,7 @@ let zebraPosition = -1;
 let closestDistance = savannah.length;
 
 for (let index = 0; index < savannah.length; index++) {
-   if(savannah[index] === lino) {
+   if(savannah[index] === lion) {
       lionPosition = index;
    } else if(savannah[index] === zebra) {
       zebraPosition = index
