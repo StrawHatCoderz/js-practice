@@ -9,8 +9,7 @@ const zebra = "Z";
 let lionPosition = -1;
 let zebraPosition = -1;
 
-let closestDistance = -1;
-let prevClosestDistance = testCaseToUse.length;
+let closestDistance = testCaseToUse.length;
 
 for (let index = 0; index < testCaseToUse.length; index++) {
    if(testCaseToUse[index] === lino) {
@@ -26,14 +25,10 @@ for (let index = 0; index < testCaseToUse.length; index++) {
       } else {
          distance = zebraPosition - lionPosition - 1;
       }
-
-      if(closestDistance < prevClosestDistance) {
-         prevClosestDistance = closestDistance;
+      if(distance < closestDistance) {
          closestDistance = distance;
       }
    }
 }
-
-
 
 console.log("Input:",testCaseToUse, "Output:",closestDistance);
