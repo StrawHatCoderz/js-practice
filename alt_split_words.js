@@ -5,6 +5,7 @@ function isVowel(c) {
 function altSplitWords(text) {
   let updatedString = text[0];
   let isNextConsonant = isVowel(text[0]);
+  let unProcessedString = '';
 
   for (let position = 1; position < text.length; position++) {
     const char = text[position];
@@ -15,7 +16,13 @@ function altSplitWords(text) {
     } else if (!isNextConsonant && isVowel(char)) {
       updatedString += char;
       isNextConsonant = true;
+    } else {
+      unProcessedString += char;
     }
+  }
+
+  if (unProcessedString) {
+    return updatedString + ',' + altSplitWords(unProcessedString);
   }
 
   return updatedString;
@@ -46,6 +53,15 @@ function testAltSplitWords(text, expectedOutput) {
 
 function main() {
   testAltSplitWords('apple', 'ape,p,l');
+  testAltSplitWords('there', 'tere,h');
+  testAltSplitWords('hello', 'helo,l');
+  testAltSplitWords('abyss', 'ab,y,s,s');
+  testAltSplitWords('words', 'wor,d,s');
+  testAltSplitWords('split', 'sit,p,l');
+  testAltSplitWords('abcde', 'abe,c,d');
+  testAltSplitWords('aeiou', 'a,e,i,o,u');
+  testAltSplitWords('aeiou', 'a,e,i,o,u');
+  testAltSplitWords('spidy', 'sid,p,y');
 }
 
 main();
