@@ -4,6 +4,16 @@ const COLON = ":";
 const LIST_PREFIX = "l";
 const LIST_SUFFIX = "e";
 
+function decodeString(data) {
+  const colonIndex = data.indexOf(COLON);
+  const textLength = parseInt(data.slice(0, colonIndex));
+
+  const start = colonIndex + 1;
+  const end = start + textLength;
+
+  return data.slice(start, end);
+}
+
 function decodeInteger(data) {
   const start = data.indexOf(INTEGER_PREFIX) + 1;
   const end = data.lastIndexOf(INTEGER_SUFFIX);
@@ -16,6 +26,8 @@ function decode(data) {
   switch (prefix) {
     case INTEGER_PREFIX:
       return decodeInteger(data);
+    default:
+      return decodeString(data); 
   }
 }
 
@@ -91,6 +103,7 @@ function decodeTestCases() {
   runTest("i123e", 123, "Decodes a positive integer", mode);
   runTest("i-45e", -45, "Decodes a negative integer", mode);
   runTest("i0e", 0, "Decodes zero", mode);
+  runTest("5:hello", "hello", "Decodes a simple string", mode);
 }
 
 function encodeTestCases() {
