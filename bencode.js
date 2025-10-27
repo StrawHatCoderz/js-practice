@@ -82,6 +82,20 @@ function encodeTestCases() {
     "Encodes a list with mixed types",
     mode
   );
+  runTest(
+    ["apple", 123, ["banana", -45]],
+    "l5:applei123el6:bananai-45eee",
+    "Encodes a nested list with mixed types",
+    mode
+  );
+  runTest([], "le", "Encodes an empty list", mode);
+  runTest([0, "", []], "li0e0:lee", "Encodes a list with empty elements", mode);
+  runTest(
+    ["one", ["two", ["three"]]],
+    "l3:onel3:twol5:threeeee",
+    "Encodes a deeply nested list",
+    mode
+  );
 }
 
 function main() {
