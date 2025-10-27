@@ -62,6 +62,13 @@ function encodeTestCases() {
   runTest(-45, "i-45e", "Encodes a negative integer", mode);
   runTest(0, "i0e", "Encodes zero", mode);
   runTest("hello", "5:hello", "Encodes a simple string", mode);
+  runTest("", "0:","Encodes an empty string", mode);
+  runTest(
+    "special:chars!",
+    "14:special:chars!",
+    "Encodes a string with special characters",
+    mode
+  );
 }
 
 function main() {
