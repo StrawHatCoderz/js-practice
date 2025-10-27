@@ -4,11 +4,19 @@ const COLON = ":";
 const LIST_PREFIX = "l";
 const LIST_SUFFIX = "e";
 
-function decode(data) {
+function decodeInteger(data) {
   const start = data.indexOf(INTEGER_PREFIX) + 1;
   const end = data.lastIndexOf(INTEGER_SUFFIX);
 
   return parseInt(data.slice(start, end));
+}
+function decode(data) {
+  const prefix = data[0];
+
+  switch (prefix) {
+    case INTEGER_PREFIX:
+      return decodeInteger(data);
+  }
 }
 
 function encodeInteger(data) {
