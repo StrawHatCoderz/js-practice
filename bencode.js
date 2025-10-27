@@ -104,6 +104,19 @@ function decodeTestCases() {
   runTest("i-45e", -45, "Decodes a negative integer", mode);
   runTest("i0e", 0, "Decodes zero", mode);
   runTest("5:hello", "hello", "Decodes a simple string", mode);
+  runTest("0:", "", "Decodes an empty string", mode);
+  runTest(
+    "11:hello world",
+    "hello world",
+    "Decodes a string with a space",
+    mode
+  );
+  runTest(
+    "16:special!@#$chars",
+    "special!@#$chars",
+    "Decodes a string with special characters",
+    mode
+  );
 }
 
 function encodeTestCases() {
