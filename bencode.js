@@ -1,3 +1,10 @@
+const INTEGER_PREFIX = "i";
+const INTEGER_SUFFIX = "e";
+
+function encode(data) {
+  return INTEGER_PREFIX + data + INTEGER_SUFFIX;
+}
+
 function areDeepEqual(list1, list2) {
   if (!Array.isArray(list1) || !Array.isArray(list2)) {
     return list1 === list2;
@@ -44,6 +51,7 @@ function encodeTestCases() {
   const mode = "encode";
   printTitle("Encoding Test Cases");
 
+  runTest(123, "i123e", "Encodes a positive integer", mode);
 }
 
 function main() {
