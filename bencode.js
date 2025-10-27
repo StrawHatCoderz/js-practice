@@ -4,21 +4,34 @@ const COLON = ":";
 const LIST_PREFIX = "l";
 const LIST_SUFFIX = "e";
 
+function encodeInteger(data) {
+  return INTEGER_PREFIX + data + INTEGER_SUFFIX;
+}
+
+function encodeString(data) {
+  return data.length + COLON + data;
+}
+
+function encodeList(data) {
+  let result = "";
+
+  for (let index = 0; index < data.length; index++) {
+    result += encode(data[index]);
+  }
+
+  return LIST_PREFIX + result + LIST_SUFFIX;
+}
+
 function encode(data) {
   const dataType = typeof data;
 
-  if (dataType === "number") {
-    return INTEGER_PREFIX + data + INTEGER_SUFFIX;
-  } else if (dataType === "string") {
-    return data.length + COLON + data;
-  } else {
-    let result = "";
-
-    for (let index = 0; index < data.length; index++) {
-      result += encode(data[index]);
-    }
-
-    return LIST_PREFIX + result + LIST_SUFFIX;
+  switch (dataType) {
+    case "number":
+      return encodeInteger(data);
+    case "string":
+      return encodeString(data);
+    default:
+      return encodeList(data);
   }
 }
 
