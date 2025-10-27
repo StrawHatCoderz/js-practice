@@ -52,6 +52,8 @@ function encodeTestCases() {
   printTitle("Encoding Test Cases");
 
   runTest(123, "i123e", "Encodes a positive integer", mode);
+  runTest(-45, "i-45e", "Encodes a negative integer", mode);
+  runTest(0, "i0e", "Encodes zero", mode);
 }
 
 function main() {
