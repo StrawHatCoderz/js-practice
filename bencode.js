@@ -4,6 +4,10 @@ const COLON = ":";
 const LIST_PREFIX = "l";
 const LIST_SUFFIX = "e";
 
+function decode(data) {
+  return parseInt(data.slice(1, 4));
+}
+
 function encodeInteger(data) {
   return INTEGER_PREFIX + data + INTEGER_SUFFIX;
 }
@@ -72,6 +76,8 @@ function printTitle(title) {
 function decodeTestCases() {
   const mode = "decode";
   printTitle("Decoding Test Cases");
+
+  runTest("i123e", 123, "Decodes a positive integer", mode);
 }
 
 function encodeTestCases() {
