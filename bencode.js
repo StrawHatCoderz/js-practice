@@ -1,15 +1,25 @@
 const INTEGER_PREFIX = "i";
 const INTEGER_SUFFIX = "e";
 const COLON = ":";
+const LIST_PREFIX = "l";
+const LIST_SUFFIX = "e";
 
 function encode(data) {
   const dataType = typeof data;
 
   if (dataType === "number") {
     return INTEGER_PREFIX + data + INTEGER_SUFFIX;
-  }
+  } else if (dataType === "string") {
+    return data.length + COLON + data;
+  } else {
+    let result = "";
 
-  return data.length + COLON + data;
+    for (let index = 0; index < data.length; index++) {
+      result += encode(data[index]);
+    }
+
+    return LIST_PREFIX + result + LIST_SUFFIX;
+  }
 }
 
 function areDeepEqual(list1, list2) {
@@ -20,9 +30,7 @@ function areDeepEqual(list1, list2) {
   if (list1.length !== list2.length) return false;
 
   for (let index = 0; index < list1.length; index++) {
-
     if (!areDeepEqual(list1[index], list2[index])) return false;
-
   }
 
   return true;
@@ -51,7 +59,6 @@ function printTitle(title) {
 function decodeTestCases() {
   const mode = "decode";
   printTitle("Decoding Test Cases");
-
 }
 
 function encodeTestCases() {
@@ -62,11 +69,17 @@ function encodeTestCases() {
   runTest(-45, "i-45e", "Encodes a negative integer", mode);
   runTest(0, "i0e", "Encodes zero", mode);
   runTest("hello", "5:hello", "Encodes a simple string", mode);
-  runTest("", "0:","Encodes an empty string", mode);
+  runTest("", "0:", "Encodes an empty string", mode);
   runTest(
     "special:chars!",
     "14:special:chars!",
     "Encodes a string with special characters",
+    mode
+  );
+  runTest(
+    ["apple", 123],
+    "l5:applei123ee",
+    "Encodes a list with mixed types",
     mode
   );
 }
