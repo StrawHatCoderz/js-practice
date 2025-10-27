@@ -1,8 +1,15 @@
 const INTEGER_PREFIX = "i";
 const INTEGER_SUFFIX = "e";
+const COLON = ":";
 
 function encode(data) {
-  return INTEGER_PREFIX + data + INTEGER_SUFFIX;
+  const dataType = typeof data;
+
+  if (dataType === "number") {
+    return INTEGER_PREFIX + data + INTEGER_SUFFIX;
+  }
+
+  return data.length + COLON + data;
 }
 
 function areDeepEqual(list1, list2) {
@@ -54,6 +61,7 @@ function encodeTestCases() {
   runTest(123, "i123e", "Encodes a positive integer", mode);
   runTest(-45, "i-45e", "Encodes a negative integer", mode);
   runTest(0, "i0e", "Encodes zero", mode);
+  runTest("hello", "5:hello", "Encodes a simple string", mode);
 }
 
 function main() {
