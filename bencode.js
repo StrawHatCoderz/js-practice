@@ -4,6 +4,21 @@ const COLON = ":";
 const LIST_PREFIX = "l";
 const LIST_SUFFIX = "e";
 
+function decodeList(data) {
+  const result = [];
+  let index = 1;
+
+  while (data[index] !== LIST_SUFFIX) {
+    const decodedElement = decode(data.slice(index));
+    result.push(decodedElement);
+
+    const encodedElement = encode(decodedElement);
+    index += encodedElement.length;
+  }
+
+  return result;
+}
+
 function decodeString(data) {
   const colonIndex = data.indexOf(COLON);
   const textLength = parseInt(data.slice(0, colonIndex));
@@ -26,6 +41,8 @@ function decode(data) {
   switch (prefix) {
     case INTEGER_PREFIX:
       return decodeInteger(data);
+    case LIST_PREFIX:
+      return decodeList(data);
     default:
       return decodeString(data); 
   }
@@ -115,6 +132,12 @@ function decodeTestCases() {
     "16:special!@#$chars",
     "special!@#$chars",
     "Decodes a string with special characters",
+    mode
+  );
+  runTest(
+    "l5:applei123ee",
+    ["apple", 123],
+    "Decodes a list with mixed types",
     mode
   );
 }
