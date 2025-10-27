@@ -140,6 +140,25 @@ function decodeTestCases() {
     "Decodes a list with mixed types",
     mode
   );
+  runTest("le", [], "Decodes an empty list", mode);
+  runTest(
+    "li0e0:lee",
+    [0, "", []],
+    "Decodes a list with empty elements",
+    mode
+  );
+  runTest(
+    "l0:i0elee",
+    ["", 0, []],
+    "Decodes a list with deeply nested empty elements",
+    mode
+  );
+  runTest(
+    "l3:onel3:twol5:threeeee",
+    ["one", ["two", ["three"]]],
+    "Decodes a deeply nested list",
+    mode
+  );
 }
 
 function encodeTestCases() {
