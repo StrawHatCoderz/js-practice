@@ -81,6 +81,8 @@ function decodeTestCases() {
   printTitle("Decoding Test Cases");
 
   runTest("i123e", 123, "Decodes a positive integer", mode);
+  runTest("i-45e", -45, "Decodes a negative integer", mode);
+  runTest("i0e", 0, "Decodes zero", mode);
 }
 
 function encodeTestCases() {
