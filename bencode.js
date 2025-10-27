@@ -1,1 +1,54 @@
-console.log('encode, decode assignment');
+function areDeepEqual(list1, list2) {
+  if (!Array.isArray(list1) || !Array.isArray(list2)) {
+    return list1 === list2;
+  }
+
+  if (list1.length !== list2.length) return false;
+
+  for (let index = 0; index < list1.length; index++) {
+
+    if (!areDeepEqual(list1[index], list2[index])) return false;
+
+  }
+
+  return true;
+}
+
+function displayResults(data, desc, actual, expected) {
+  const passed = areDeepEqual(actual, expected);
+  const symbol = passed ? "✅" : "❌";
+  console.log(`${symbol} | ${desc}`);
+  if (!passed) {
+    console.log(`  input    [${data}]`);
+    console.log(`  Actual   [${actual}]`);
+    console.log(`  Expected [${expected}]`);
+  }
+}
+
+function runTest(data, expected, desc, mode) {
+  const result = mode === "encode" ? encode(data) : decode(data);
+  displayResults(data, desc, result, expected);
+}
+
+function printTitle(title) {
+  console.log(`\n=== ${title} ===`);
+}
+
+function decodeTestCases() {
+  const mode = "decode";
+  printTitle("Decoding Test Cases");
+
+}
+
+function encodeTestCases() {
+  const mode = "encode";
+  printTitle("Encoding Test Cases");
+
+}
+
+function main() {
+  encodeTestCases();
+  decodeTestCases();
+}
+
+main();
