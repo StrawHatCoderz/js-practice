@@ -5,7 +5,10 @@ const LIST_PREFIX = "l";
 const LIST_SUFFIX = "e";
 
 function decode(data) {
-  return parseInt(data.slice(1, 4));
+  const start = data.indexOf(INTEGER_PREFIX) + 1;
+  const end = data.lastIndexOf(INTEGER_SUFFIX);
+
+  return parseInt(data.slice(start, end));
 }
 
 function encodeInteger(data) {
